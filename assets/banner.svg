@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+  <defs>
+    <!-- Dynamic Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16">
+        <animate attributeName="stop-color" values="#090d16; #0d1527; #0a1128; #090d16" dur="10s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="50%" stop-color="#0b1736">
+        <animate attributeName="stop-color" values="#0b1736; #162447; #0e1e40; #0b1736" dur="10s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#050a14">
+        <animate attributeName="stop-color" values="#050a14; #07111e; #050b18; #050a14" dur="10s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+
+    <!-- Filters for Glow Effects -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Patterns -->
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1" />
+      <circle cx="30" cy="0" r="1" fill="rgba(56, 189, 248, 0.15)" />
+    </pattern>
+
+    <!-- CSS Keyframes Animation -->
+    <style>
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 0.85; }
+        50% { transform: scale(1.05); opacity: 1; }
+      }
+      @keyframes floatSlow {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-10px) rotate(2deg); }
+      }
+      @keyframes floatRev {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(8px) rotate(-2deg); }
+      }
+      @keyframes dash {
+        to { stroke-dashoffset: -40; }
+      }
+      .floating-shield {
+        animation: floatSlow 6s ease-in-out infinite;
+        transform-origin: center;
+      }
+      .floating-card {
+        animation: floatRev 7s ease-in-out infinite;
+        transform-origin: center;
+      }
+      .animated-stream {
+        stroke-dasharray: 8 6;
+        animation: dash 2.5s linear infinite;
+      }
+      .beacon {
+        animation: pulse 3s ease-in-out infinite;
+        transform-origin: center;
+      }
+    </style>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="100%" height="100%" fill="url(#bgGradient)" />
+  <rect width="100%" height="100%" fill="url(#grid)" />
+
+  <!-- Ambient Glow Orbs -->
+  <circle cx="200" cy="80" r="160" fill="#38bdf8" opacity="0.08" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.06;0.12;0.06" dur="6s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="1000" cy="260" r="180" fill="#a855f7" opacity="0.08" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.08;0.14;0.08" dur="7s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Flowing Network Connection Lines -->
+  <path class="animated-stream" d="M 150 180 Q 400 60, 700 160 T 1150 120" fill="none" stroke="#38bdf8" stroke-width="2" opacity="0.3" />
+  <path class="animated-stream" d="M 80 260 Q 450 340, 800 220 T 1120 280" fill="none" stroke="#818cf8" stroke-width="2" opacity="0.25" style="animation-direction: reverse; animation-duration: 4s;" />
+
+  <!-- Left/Center Hero Content -->
+  <g transform="translate(90, 0)">
+    <!-- Category Badge -->
+    <g transform="translate(0, 56)">
+      <rect width="280" height="32" rx="16" fill="rgba(56, 189, 248, 0.12)" stroke="rgba(56, 189, 248, 0.35)" stroke-width="1.2" />
+      <circle cx="16" cy="16" r="5" fill="#38bdf8" class="beacon" />
+      <text x="32" y="21" fill="#bae6fd" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" letter-spacing="0.8">REAL ESTATE TECH &amp; FINTECH</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="0" y="145" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5">
+      Awesome Title &amp; Escrow
+    </text>
+    <text x="0" y="195" fill="url(#accentGradient)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5" filter="url(#subtleGlow)">
+      Software Ecosystem
+    </text>
+
+    <!-- Subtitle & Pillars -->
+    <text x="0" y="240" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="400">
+      Curated Production Engines, Settlement Disclosures, Wire Fraud Defense &amp; Smart Escrows
+    </text>
+
+    <!-- Pill Feature Badges -->
+    <g transform="translate(0, 272)">
+      <!-- Pill 1: Title Production -->
+      <g transform="translate(0, 0)">
+        <rect width="155" height="30" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+        <circle cx="15" cy="15" r="3.5" fill="#38bdf8" />
+        <text x="28" y="19" fill="#e2e8f0" font-family="sans-serif" font-size="12" font-weight="600">Title Production</text>
+      </g>
+
+      <!-- Pill 2: Escrow Accounting -->
+      <g transform="translate(165, 0)">
+        <rect width="165" height="30" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+        <circle cx="15" cy="15" r="3.5" fill="#818cf8" />
+        <text x="28" y="19" fill="#e2e8f0" font-family="sans-serif" font-size="12" font-weight="600">Escrow Accounting</text>
+      </g>
+
+      <!-- Pill 3: Wire Fraud Guard -->
+      <g transform="translate(340, 0)">
+        <rect width="165" height="30" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+        <circle cx="15" cy="15" r="3.5" fill="#f59e0b" />
+        <text x="28" y="19" fill="#e2e8f0" font-family="sans-serif" font-size="12" font-weight="600">Wire Fraud Guard</text>
+      </g>
+
+      <!-- Pill 4: Open Source & APIs -->
+      <g transform="translate(515, 0)">
+        <rect width="160" height="30" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+        <circle cx="15" cy="15" r="3.5" fill="#34d399" />
+        <text x="28" y="19" fill="#e2e8f0" font-family="sans-serif" font-size="12" font-weight="600">Open-Source &amp; AI</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right Visual Elements: Interactive 3D/Tech Illustration -->
+  <g transform="translate(940, 175)">
+    <!-- Glowing Ring Orbit -->
+    <ellipse cx="0" cy="0" rx="140" ry="60" fill="none" stroke="url(#accentGradient)" stroke-width="1.5" opacity="0.4" transform="rotate(-20)" />
+    
+    <!-- Floating Settlement Document Card -->
+    <g class="floating-card" transform="translate(-70, -70)">
+      <rect width="130" height="150" rx="12" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(129, 140, 248, 0.4)" stroke-width="1.5" filter="url(#glow)" />
+      <!-- Document Header lines -->
+      <rect x="16" y="18" width="50" height="7" rx="3" fill="#818cf8" opacity="0.8" />
+      <rect x="16" y="34" width="98" height="4" rx="2" fill="rgba(255,255,255,0.2)" />
+      <rect x="16" y="44" width="80" height="4" rx="2" fill="rgba(255,255,255,0.2)" />
+      <rect x="16" y="54" width="90" height="4" rx="2" fill="rgba(255,255,255,0.2)" />
+      <!-- Balance / Settlement Table simulation -->
+      <rect x="16" y="70" width="98" height="45" rx="6" fill="rgba(56, 189, 248, 0.08)" stroke="rgba(56, 189, 248, 0.2)" stroke-width="1" />
+      <rect x="24" y="80" width="40" height="4" rx="2" fill="#38bdf8" />
+      <rect x="74" y="80" width="30" height="4" rx="2" fill="#34d399" />
+      <rect x="24" y="92" width="55" height="4" rx="2" fill="rgba(255,255,255,0.3)" />
+      <rect x="24" y="102" width="35" height="4" rx="2" fill="rgba(255,255,255,0.3)" />
+      <!-- Verified Stamp -->
+      <circle cx="102" cy="126" r="12" fill="#34d399" opacity="0.9" />
+      <path d="M 98 126 L 101 129 L 107 123" fill="none" stroke="#064e3b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+
+    <!-- Floating Shield (Wire & Escrow Protection) -->
+    <g class="floating-shield" transform="translate(30, -30)">
+      <rect width="110" height="120" rx="14" fill="rgba(10, 18, 38, 0.92)" stroke="url(#accentGradient)" stroke-width="1.8" filter="url(#glow)" />
+      <!-- Shield Icon Inside -->
+      <path d="M 55 24 Q 75 24 82 34 Q 82 66 55 86 Q 28 66 28 34 Q 35 24 55 24 Z" fill="url(#shieldGrad)" opacity="0.85" />
+      <!-- Lock Shackle & Body -->
+      <path d="M 49 48 L 49 43 C 49 39.5, 61 39.5, 61 43 L 61 48" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+      <rect x="45" y="48" width="20" height="15" rx="3" fill="#ffffff" />
+      <circle cx="55" cy="55" r="2" fill="#0369a1" />
+      <!-- Verified Text -->
+      <text x="55" y="104" text-anchor="middle" fill="#38bdf8" font-family="sans-serif" font-size="10" font-weight="700" letter-spacing="0.5">ENCRYPTED</text>
+    </g>
+  </g>
+
+  <!-- Bottom Accent Border Line -->
+  <rect x="0" y="356" width="1200" height="4" fill="url(#accentGradient)" />
+</svg>
